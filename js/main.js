@@ -56,5 +56,23 @@ for (let i = 0; i < images.length; i++) {
         </div>`
  };
 
- 
+ const buttonNext = document.querySelector(`.btn_next`);
+ const buttonPrev = document.querySelector(`.btn_prev`);
 
+ const imagesElements = document.querySelectorAll(`div.box_img`)
+ console.log(imagesElements)
+
+buttonNext.addEventListener(`click`, function(){
+    const imageActiveTaken = document.querySelector(`div.active`);
+    imageActiveTaken.classList.remove(`active`);
+
+     activeImage++;
+     imagesElements[activeImage].classList.add(`active`);
+});
+
+buttonPrev.addEventListener(`click`, function(){
+    imagesElements[activeImage].classList.remove(`active`);
+    activeImage--;
+
+    imagesElements[activeImage].classList.add(`active`);
+});
