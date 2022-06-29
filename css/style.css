@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#box_img{
+    position: relative;
+}
+
+.box_description{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    color: white;
+    text-align: end;
+}
+
+#box_button{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#box_button a{
+    font-size: 30px;
+}
+
+
+.ms_img{
+    width: 100%;
+}
