@@ -67,12 +67,21 @@ buttonNext.addEventListener(`click`, function(){
     imageActiveTaken.classList.remove(`active`);
 
      activeImage++;
+     if (activeImage === images.length){
+        activeImage = 0;
+     }
      imagesElements[activeImage].classList.add(`active`);
+
+     
 });
 
 buttonPrev.addEventListener(`click`, function(){
     imagesElements[activeImage].classList.remove(`active`);
     activeImage--;
+
+    if (activeImage === - 1){
+        activeImage = images.length - 1;
+     }
 
     imagesElements[activeImage].classList.add(`active`);
 });
