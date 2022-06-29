@@ -9,14 +9,20 @@ h1{
     margin: 10px 0;
 }
 
-.container{
+main{
     width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 
-#box_img{
+.box_img{
     position: relative;
+    display: none;
 }
+
+.box_img.active{
+    display: block;
+}
+
 
 .box_description{
     position: absolute;
