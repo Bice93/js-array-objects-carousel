@@ -38,13 +38,15 @@ const images = [
 
 
 const wrapperImages = document.querySelector(`.container`);
-
+const wrapperThumbnails = document.querySelector(`.thumbnails`); //parent del thumbnails
 
 let activeImage = 0;
 for (let i = 0; i < images.length; i++) {
     let activeClass =``;
+    let activeThumb = ``;
     if (i == activeImage){
         activeClass = `active`;
+        activeThumb = `active_thumb`;
      }
     wrapperImages.innerHTML += `<div class="box_img ${activeClass}">
             <img src="${images[i].url}" class="ms_img"
@@ -53,30 +55,40 @@ for (let i = 0; i < images.length; i++) {
                 <h2>${images[i].title}</h2>
                 <p>${images[i].description}</p>
             </div>
-        </div>`
+        </div>`;
+
+    wrapperThumbnails.innerHTML += `<img src="${images[i].url}" class ="ms_imgThumb ${activeThumb}" alt="">` //thumbnails
+    
  };
 
  const buttonNext = document.querySelector(`.btn_next`);
  const buttonPrev = document.querySelector(`.btn_prev`);
 
  const imagesElements = document.querySelectorAll(`div.box_img`)
- console.log(imagesElements)
+ //console.log(imagesElements)
+ 
+ const thumbnailsElement = document.querySelectorAll(`.thumbnails>img`);
+ //console.log(thumbnailsElement)
 
 buttonNext.addEventListener(`click`, function(){
     const imageActiveTaken = document.querySelector(`div.active`);
     imageActiveTaken.classList.remove(`active`);
+
+    const thumbnailsElementTaken = document.querySelector(`img.active_thumb`); // thumbnails
+    thumbnailsElementTaken.classList.remove(`active_thumb`);                    // thumnails
 
      activeImage++;
      if (activeImage === images.length){
         activeImage = 0;
      }
      imagesElements[activeImage].classList.add(`active`);
-
+     thumbnailsElement[activeImage].classList.add(`active_thumb`); //thumbnails
      
 });
 
 buttonPrev.addEventListener(`click`, function(){
     imagesElements[activeImage].classList.remove(`active`);
+    thumbnailsElement[activeImage].classList.remove(`active_thumb`);  //thumbnails
     activeImage--;
 
     if (activeImage === - 1){
@@ -84,4 +96,5 @@ buttonPrev.addEventListener(`click`, function(){
      }
 
     imagesElements[activeImage].classList.add(`active`);
+    thumbnailsElement[activeImage].classList.add(`active_thumb`);  //thumbnails
 });
